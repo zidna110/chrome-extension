@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+    "name": "GO 语言中文网阅读小助手",
+    "description": "GO 语言中文网推出的阅读小助手，让你不错过任何信息！",
+    "version": "1.0",
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ],
+        "persistent": true
+    },
+    "chrome_url_overrides": {
+        "newtab": "html/newtab.html"
+    },
+    "permissions": [
+        "https://studygolang.com",
+        "tabs",
+        "storage"
+    ],
+    "browser_action": {
+        "default_icon": {
+            "16": "img/icon/icon_16.png",
+            "19": "img/icon/icon_19.png",
+            "38": "img/icon/icon_38.png",
+            "48": "img/icon/icon_48.png",
+            "128": "img/icon/icon_128.png"
+        },
+        "default_popup": "html/click_popup_page.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "js/contentScript.js"
+            ]
+        }
+    ]
+}
